@@ -7,8 +7,8 @@ script: true
 before_deploy:
   - echo "<?php" > app/config.php
   - echo "" >> app/config.php
-  - echo "define('API_KEY', '" $API_KEY "');" >> app/config.php
-  - echo "define('SPREADSHEET_ID', '" $SPREADSHEET_ID "');" >> app/config.php
+  - echo "define('API_KEY', '$API_KEY');" >> app/config.php
+  - echo "define('SPREADSHEET_ID', '$SPREADSHEET_ID');" >> app/config.php
 
 deploy:
   provider: azure_web_apps
