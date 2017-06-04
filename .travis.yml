@@ -1,0 +1,13 @@
+language: php
+
+install: composer install
+
+before_deploy:
+  - echo "<?php" > api/config.php
+  - echo "" >> api/config.php
+  - echo "define('API_KEY', '" $API_KEY "');" >> api/config.php
+  - echo "define('SPREADSHEET_ID', '" $SPREADSHEET_ID "');" >> api/config.php
+
+deploy:
+  provider: azure_web_apps
+  skip_cleanup: true
