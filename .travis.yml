@@ -2,6 +2,8 @@ language: php
 
 install: composer install
 
+script: true
+
 before_deploy:
   - echo "<?php" > api/config.php
   - echo "" >> api/config.php
