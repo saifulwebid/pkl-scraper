@@ -98,7 +98,7 @@ function getCompanyParticipantList(Google_Service_Sheets $service, $companyIndex
 		$priority[$key] = $row['priority'];
 		if (empty($priority[$key]))
 			$priority[$key] = 999;
-		
+
 		$name[$key] = $row['name'];
 	}
 	array_multisort($priority, SORT_ASC, $name, SORT_ASC, $participants);
@@ -117,8 +117,6 @@ function getParticipantProfile(Google_Service_Sheets $service, $participantIndex
 		. (count($companies) + 2);
 	$response = $service->spreadsheets_values->get(SPREADSHEET_ID, $range);
 	$values = $response->getValues();
-
-	var_dump($values);
 
 	$profile['name'] = $values[0][0];
 
