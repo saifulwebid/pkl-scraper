@@ -1,5 +1,7 @@
 <?php
 
+define('SHEET_NAME', 'Prioritas Perusahaan');
+
 function getGoogleClient()
 {
 	$client = new Google_Client();
@@ -15,7 +17,8 @@ function getSheetsService(Google_Client $client)
 
 function getCompanyList(Google_Service_Sheets $service)
 {
-	$response = $service->spreadsheets_values->get(SPREADSHEET_ID, 'Sheet1!B:I');
+	$response = $service->spreadsheets_values
+		->get(SPREADSHEET_ID, SHEET_NAME . '!B:I');
 	$values = $response->getValues();
 
 	unset($values[0]);
@@ -56,7 +59,7 @@ function getCompanyInfo(Google_Service_Sheets $service, $companyIndex)
 	$companyIndex += 2;
 
 	$response = $service->spreadsheets_values->get(SPREADSHEET_ID,
-		'Sheet1!B' . $companyIndex . ':I' . $companyIndex);
+		SHEET_NAME . '!B' . $companyIndex . ':I' . $companyIndex);
 	$company = $response->getValues()[0];
 
 	$result['name'] = @$company[0];
@@ -76,7 +79,7 @@ function getCompanyParticipantList(Google_Service_Sheets $service, $companyIndex
 	$companyIndex += 2;
 
 	$response = $service->spreadsheets_values->get(SPREADSHEET_ID,
-		'Sheet1!J1:BM1');
+		SHEET_NAME . '!J1:BM1');
 	$values = $response->getValues()[0];
 	for ($i = 0; $i < count($values); $i += 2)
 	{
@@ -85,7 +88,7 @@ function getCompanyParticipantList(Google_Service_Sheets $service, $companyIndex
 	}
 
 	$response = $service->spreadsheets_values->get(SPREADSHEET_ID,
-		'Sheet1!J' . $companyIndex . ':BM' . $companyIndex);
+		SHEET_NAME . '!J' . $companyIndex . ':BM' . $companyIndex);
 	$values = $response->getValues()[0];
 	for ($i = 0; $i < count($values); $i += 2)
 	{
@@ -112,7 +115,8 @@ function getParticipantProfile(Google_Service_Sheets $service, $participantIndex
 
 	$participantIndex--;
 
-	$range = 'Sheet1!' . getSheetsColumnFromIndex($participantIndex * 2 + 10)
+	$range = SHEET_NAME . '!'
+		. getSheetsColumnFromIndex($participantIndex * 2 + 10)
 		. '1:' . getSheetsColumnFromIndex($participantIndex * 2 + 11)
 		. (count($companies) + 2);
 	$response = $service->spreadsheets_values->get(SPREADSHEET_ID, $range);
