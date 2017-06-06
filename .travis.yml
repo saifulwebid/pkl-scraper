@@ -1,6 +1,10 @@
 language: php
 
-install: composer install
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+install: composer install --prefer-dist
 
 script: true
 
