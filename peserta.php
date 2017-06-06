@@ -8,6 +8,8 @@ $client = getGoogleClient();
 $service = getSheetsService($client);
 $participant = getParticipantProfile($service, $_GET['id']);
 
+$title = $participant['name'];
+
 include('tpl/header.php');
 
 ?>

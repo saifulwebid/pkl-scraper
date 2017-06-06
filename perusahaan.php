@@ -9,11 +9,13 @@ $service = getSheetsService($client);
 $company = getCompanyInfo($service, $_GET['id']);
 $participants = getCompanyParticipantList($service, $_GET['id']);
 
+$title = $company['name'];
+
 include('tpl/header.php');
 
 ?>
 
-<table border="1">
+<table border="1" style="margin-bottom: 1em">
 	<tbody>
 		<tr>
 			<td>Nama Perusahaan</td>
@@ -67,7 +69,7 @@ foreach ($participants as $participant)
 	printf('
 		<tr>
 			<td><a href="peserta.php?id=%d">%s</a></td>
-			<td>%s</td>
+			<td align="center">%d</td>
 			<td>%s</td>
 		</tr>',
 		$participant['index'], $participant['name'], $participant['priority'],
