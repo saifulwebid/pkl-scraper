@@ -34,11 +34,11 @@ include('tpl/header.php');
 		</tr>
 	</thead>
 	<tbody>
-		<?php foreach ($companies as $company) : ?>
+		<?php $index = 1; foreach ($companies as $company) : ?>
 		<tr>
-			<td align="center"><?php echo $company['index']; ?></td>
-			<td align="center"><?php echo $company['quota']; ?></td>
+			<td align="center"><?php echo $index++; ?></td>
 			<td><?php echo $company['name']; ?></td>
+			<td align="center"><b><?php echo $company['quota']; ?></b></td>
 			<?php for ($i = 1; $i <= count($companies); $i++) : ?>
 			<td align="center" width="30">
 				<?php echo $company['stats'][$i] == 0 ? '-' : $company['stats'][$i]; ?>
