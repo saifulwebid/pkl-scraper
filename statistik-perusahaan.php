@@ -22,6 +22,7 @@ include('tpl/header.php');
 		<tr>
 			<th rowspan="2">No.</th>
 			<th rowspan="2">Nama Perusahaan</th>
+			<th rowspan="2">Kuota</th>
 			<th colspan="<?php echo count($companies) + 1; ?>">Prioritas</th>
 			<th rowspan="2">Opsi</th>
 		</tr>
@@ -36,6 +37,7 @@ include('tpl/header.php');
 		<?php foreach ($companies as $company) : ?>
 		<tr>
 			<td align="center"><?php echo $company['index']; ?></td>
+			<td align="center"><?php echo $company['quota']; ?></td>
 			<td><?php echo $company['name']; ?></td>
 			<?php for ($i = 1; $i <= count($companies); $i++) : ?>
 			<td align="center" width="30">
