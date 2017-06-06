@@ -165,3 +165,14 @@ function getParticipantProfile(Google_Service_Sheets $service, $participantIndex
 
 	return $profile;
 }
+
+function sortCompanyByStats($list, $key)
+{
+	for ($i = 0; $i < count($list); $i++)
+	{
+		$priority[$i] = $list[$i]['stats'][$key];
+	}
+	array_multisort($priority, SORT_DESC, $list);
+
+	return $list;
+}

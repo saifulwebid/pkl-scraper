@@ -10,6 +10,11 @@ $companies = getCompanyList($service);
 
 ?>
 
+<p>
+	<a href="./">Daftar Perusahaan</a> |
+	<a href="./statistik-perusahaan.php?sort=1">Statistik per Perusahaan</a>
+</p>
+
 <table border="1">
 	<thead>
 		<tr>
