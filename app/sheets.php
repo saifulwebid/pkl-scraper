@@ -15,16 +15,28 @@ function getSheetsService(Google_Client $client)
 	return $service;
 }
 
-function getCompanyList(Google_Service_Sheets $service)
+function getCompanyList(Google_Service_Sheets $service, $with_stats = false)
 {
 	$response = $service->spreadsheets_values
-		->get(SPREADSHEET_ID, SHEET_NAME . '!B:I');
+		->get(SPREADSHEET_ID, SHEET_NAME . '!B:'
+			. ($with_stats == true ? 'BM' : 'I'));
 	$values = $response->getValues();
 
 	unset($values[0]);
 	unset($values[1]);
 
 	$values = array_values($values);
+
+	if ($with_stats)
+	{
+		foreach ($values as $key => $value)
+		{
+			for ($i = 1; $i <= count($values); $i++)
+				$result[$key]['stats'][$i] = 0;
+			$result[$key]['stats'][999] = 0;
+		}
+	}
+
 	$index = 1;
 	foreach ($values as $key => $value)
 	{
@@ -37,6 +49,17 @@ function getCompanyList(Google_Service_Sheets $service)
 		$result[$key]['knowledgeArea'] = @$value[5];
 		$result[$key]['coach'] = @$value[6];
 		$result[$key]['facilities'] = @$value[7];
+
+		if ($with_stats)
+		{
+			for ($i = 0; $i < 28; $i++)
+			{
+				if (empty(@$value[8 + ($i * 2)]))
+					$result[$key]['stats'][999]++;
+				else
+					$result[$key]['stats'][@$value[8 + ($i * 2)]]++;
+			}
+		}
 	}
 
 	return $result;
