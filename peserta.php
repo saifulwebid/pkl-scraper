@@ -8,6 +8,8 @@ $client = getGoogleClient();
 $service = getSheetsService($client);
 $participant = getParticipantProfile($service, $_GET['id']);
 
+include('tpl/header.php');
+
 ?>
 
 <p>Nama: <strong><?php echo $participant['name']; ?></strong></p>
@@ -40,3 +42,6 @@ $participant = getParticipantProfile($service, $_GET['id']);
 	</tbody>
 </table>
 
+<?php
+
+include('tpl/footer.php');

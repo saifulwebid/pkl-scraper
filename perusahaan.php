@@ -9,6 +9,8 @@ $service = getSheetsService($client);
 $company = getCompanyInfo($service, $_GET['id']);
 $participants = getCompanyParticipantList($service, $_GET['id']);
 
+include('tpl/header.php');
+
 ?>
 
 <table border="1">
@@ -76,3 +78,6 @@ foreach ($participants as $participant)
 	</tbody>
 </table>
 
+<?php
+
+include('tpl/footer.php');

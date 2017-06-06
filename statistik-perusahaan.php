@@ -13,12 +13,9 @@ if (isset($_GET['sort']))
 	$companies = sortCompanyByStats($companies, $_GET['sort']);
 }
 
-?>
+include('tpl/header.php');
 
-<p>
-	<a href="./">Daftar Perusahaan</a> |
-	<a href="./statistik-perusahaan.php?sort=1">Statistik per Perusahaan</a>
-</p>
+?>
 
 <table border="1">
 	<thead>
@@ -54,3 +51,6 @@ if (isset($_GET['sort']))
 	</tbody>
 </table>
 
+<?php
+
+include('tpl/footer.php');

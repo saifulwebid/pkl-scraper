@@ -8,12 +8,9 @@ $client = getGoogleClient();
 $service = getSheetsService($client);
 $companies = getCompanyList($service);
 
-?>
+include('tpl/header.php');
 
-<p>
-	<a href="./">Daftar Perusahaan</a> |
-	<a href="./statistik-perusahaan.php?sort=1">Statistik per Perusahaan</a>
-</p>
+?>
 
 <table border="1">
 	<thead>
@@ -59,3 +56,6 @@ foreach ($companies as $company)
 	</tbody>
 </table>
 
+<?php
+
+include('tpl/footer.php');
