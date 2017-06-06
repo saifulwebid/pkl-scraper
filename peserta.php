@@ -15,9 +15,13 @@ $participant = getParticipantProfile($service, $_GET['id']);
 <table border="1">
 	<thead>
 		<tr>
-			<th>Prioritas</th>
-			<th>Perusahaan</th>
-			<th>Prerequisites yang dimiliki</th>
+			<th rowspan="2">Prioritas</th>
+			<th colspan="2">Perusahaan Tujuan</th>
+			<th rowspan="2">Prerequisites yang dimiliki</th>
+		</tr>
+		<tr>
+			<th>Nama Perusahaan</th>
+			<th>Prerequisites</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -29,6 +33,7 @@ $participant = getParticipantProfile($service, $_GET['id']);
 					$option['company']['index'],
 					$option['company']['name']); ?>
 			</td>
+			<td><?php echo $option['company']['prerequisites']; ?></td>
 			<td><?php echo $option['skillset']; ?></td>
 		</tr>
 		<?php endforeach; ?>
