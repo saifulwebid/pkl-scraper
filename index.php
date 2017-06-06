@@ -33,11 +33,11 @@ foreach ($companies as $company)
 {
 	printf('
 		<tr>
-			<td>%d</td>
+			<td align="center">%d</td>
 			<td>%s</td>
 			<td>%s</td>
 			<td>%s</td>
-			<td>%s</td>
+			<td align="center">%d</td>
 			<td>%s</td>
 			<td>%s</td>
 			<td>%s</td>

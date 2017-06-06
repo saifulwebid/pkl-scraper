@@ -23,7 +23,7 @@ $participant = getParticipantProfile($service, $_GET['id']);
 	<tbody>
 		<?php foreach ($participant['options'] as $option) : ?>
 		<tr>
-			<td><?php echo $option['priority']; ?></td>
+			<td align="center"><?php echo $option['priority']; ?></td>
 			<td>
 				<?php printf('<a href="perusahaan.php?id=%d">%s</a>',
 					$option['company']['index'],
