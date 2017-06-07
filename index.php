@@ -49,7 +49,7 @@ include('tpl/header.php');
 			<td><?php echo $company['knowledgeArea']; ?></td>
 			<td><?php echo $company['coach']; ?></td>
 			<td><?php echo $company['facilities']; ?></td>
-			<td><a href="perusahaan.php?id=<?php echo $company['']; ?>">Lihat peminat</a></td>
+			<td><a href="perusahaan.php?id=<?php echo $company['index']; ?>">Lihat peminat</a></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
