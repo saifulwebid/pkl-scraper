@@ -8,6 +8,10 @@ $client = getGoogleClient();
 $service = getSheetsService($client);
 $companies = getCompanyList($service, true);
 
+$totalQuota = 0;
+foreach ($companies as $company)
+	$totalQuota += $company['quota'];
+
 if (isset($_GET['sort']))
 {
 	$companies = sortCompanyByStats($companies, $_GET['sort']);
@@ -51,6 +55,13 @@ include('tpl/header.php');
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
+	<tfoot>
+		<tr>
+			<td colspan="2" align="right">Total</td>
+			<td align="center"><b><?php echo $totalQuota; ?></b></td>
+			<td colspan="<?php echo count($companies) + 2; ?>"></td>
+		</tr>
+	</tfoot>
 </table>
 
 <?php
