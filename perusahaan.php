@@ -73,7 +73,7 @@ foreach ($participants as $participant)
 			<td>%s</td>
 		</tr>',
 		$participant['index'], $participant['name'], $participant['priority'],
-		$participant['skillset']);
+		nl2br($participant['skillset']));
 }
 
 ?>

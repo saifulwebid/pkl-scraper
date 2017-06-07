@@ -38,7 +38,7 @@ include('tpl/header.php');
 					$option['company']['name']); ?>
 			</td>
 			<td><?php echo $option['company']['prerequisites']; ?></td>
-			<td><?php echo $option['skillset']; ?></td>
+			<td><?php echo nl2br($option['skillset']); ?></td>
 		</tr>
 		<?php endforeach; ?>
 	</tbody>
