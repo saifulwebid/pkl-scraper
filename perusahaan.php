@@ -61,22 +61,17 @@ include('tpl/header.php');
 		</tr>
 	</thead>
 	<tbody>
-<?php
-
-$index = 1;
-foreach ($participants as $participant)
-{
-	printf('
+		<?php foreach ($participants as $participant) : ?>
 		<tr>
-			<td><a href="peserta.php?id=%d">%s</a></td>
-			<td align="center">%d</td>
-			<td>%s</td>
-		</tr>',
-		$participant['index'], $participant['name'], $participant['priority'],
-		nl2br($participant['skillset']));
-}
-
-?>
+			<td>
+				<a href="peserta.php?id=<?php echo $participant['index']; ?>">
+					<?php echo $participant['name']; ?>
+				</a>
+			</td>
+			<td align="center"><?php echo $participant['priority']; ?></td>
+			<td><?php echo nl2br($participant['skillset']); ?></td>
+		</tr>
+		<?php endforeach; ?>
 	</tbody>
 </table>
 
