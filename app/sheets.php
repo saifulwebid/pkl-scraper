@@ -171,8 +171,9 @@ function sortCompanyByStats($list, $key)
 	for ($i = 0; $i < count($list); $i++)
 	{
 		$priority[$i] = $list[$i]['stats'][$key];
+		$index[$i] = $list[$i]['index'];
 	}
-	array_multisort($priority, SORT_DESC, $list);
+	array_multisort($priority, SORT_DESC, $index, SORT_ASC, $list);
 
 	return $list;
 }
