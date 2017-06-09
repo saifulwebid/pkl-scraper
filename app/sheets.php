@@ -177,3 +177,49 @@ function sortCompanyByStats($list, $key)
 
 	return $list;
 }
+
+function getParticipantList(Google_Service_Sheets $service)
+{
+	$response = $service->spreadsheets_values
+		->get(SPREADSHEET_ID, SHEET_NAME . '!B:BM');
+	$values = $response->getValues();
+
+	for ($i = 0; $i < 28; $i++)
+		$mahasiswa[$i]['name'] = $values[0][8 + ($i * 2)];
+
+	unset($values[0]);
+	unset($values[1]);
+
+	$values = array_values($values);
+
+	foreach ($values as $key => $value)
+	{
+		for ($i = 0; $i < 28; $i++)
+		{
+			if (!empty($value[8 + ($i * 2)]))
+			{
+				$prioritas = $value[8 + ($i * 2)];
+
+				$mahasiswa[$i]['priority'][] = array(
+					'index' => $key + 1,
+					'name' => $value[0],
+					'priority' => $prioritas
+				);
+			}
+		}
+	}
+
+	for ($i = 0; $i < 28; $i++)
+	{
+		if (isset($mahasiswa[$i]['priority']))
+		{
+			$priority = array();
+			foreach ($mahasiswa[$i]['priority'] as $key => $company)
+				$priority[$key] = $company['priority'];
+
+			array_multisort($priority, SORT_ASC, $mahasiswa[$i]['priority']);
+		}
+	}
+
+	return $mahasiswa;
+}

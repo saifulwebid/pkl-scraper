@@ -15,7 +15,8 @@
 
 <p>
 	<a href="./">Daftar Perusahaan</a> |
-	<a href="./statistik-perusahaan.php?sort=1">Statistik per Perusahaan</a>
+	<a href="./statistik-perusahaan.php?sort=1">Statistik per Perusahaan</a> |
+	<a href="./list-peserta.php">Daftar Peserta</a>
 </p>
 
 <hr>
