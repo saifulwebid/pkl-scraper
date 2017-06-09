@@ -42,13 +42,13 @@ include('tpl/header.php');
 		<tr>
 			<td align="center"><?php echo $index++; ?></td>
 			<td><?php echo $company['name']; ?></td>
-			<td><?php echo $company['location']; ?></td>
-			<td><?php echo $company['project']; ?></td>
+			<td><?php echo nl2br($company['location']); ?></td>
+			<td><?php echo nl2br($company['project']); ?></td>
 			<td align="center"><?php echo $company['quota']; ?></td>
-			<td><?php echo $company['prerequisites']; ?></td>
-			<td><?php echo $company['knowledgeArea']; ?></td>
-			<td><?php echo $company['coach']; ?></td>
-			<td><?php echo $company['facilities']; ?></td>
+			<td><?php echo nl2br($company['prerequisites']); ?></td>
+			<td><?php echo nl2br($company['knowledgeArea']); ?></td>
+			<td><?php echo nl2br($company['coach']); ?></td>
+			<td><?php echo nl2br($company['facilities']); ?></td>
 			<td><a href="perusahaan.php?id=<?php echo $company['index']; ?>">Lihat peminat</a></td>
 		</tr>
 		<?php endforeach; ?>

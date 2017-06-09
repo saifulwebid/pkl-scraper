@@ -23,11 +23,11 @@ include('tpl/header.php');
 		</tr>
 		<tr>
 			<td>Lokasi Penempatan</td>
-			<td><?php echo $company['location']; ?></td>
+			<td><?php echo nl2br($company['location']); ?></td>
 		</tr>
 		<tr>
 			<td>Penempatan/Proyek</td>
-			<td><?php echo $company['project']; ?></td>
+			<td><?php echo nl2br($company['project']); ?></td>
 		</tr>
 		<tr>
 			<td>Kuota</td>
@@ -35,19 +35,19 @@ include('tpl/header.php');
 		</tr>
 		<tr>
 			<td>Prerequisites</td>
-			<td><?php echo $company['prerequisites']; ?></td>
+			<td><?php echo nl2br($company['prerequisites']); ?></td>
 		</tr>
 		<tr>
 			<td>Knowledge Area</td>
-			<td><?php echo $company['knowledgeArea']; ?></td>
+			<td><?php echo nl2br($company['knowledgeArea']); ?></td>
 		</tr>
 		<tr>
 			<td>Pembimbing</td>
-			<td><?php echo $company['coach']; ?></td>
+			<td><?php echo nl2br($company['coach']); ?></td>
 		</tr>
 		<tr>
 			<td>Fasilitas</td>
-			<td><?php echo $company['facilities']; ?></td>
+			<td><?php echo nl2br($company['facilities']); ?></td>
 		</tr>
 	</tbody>
 </table>
